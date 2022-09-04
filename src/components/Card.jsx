@@ -8,7 +8,7 @@ function Card(props) {
   function handleClick(card) {
     onCardClick(card);
   }
-
+  
   return (
     <div className="template-element">
       <div className="element">

@@ -6,12 +6,12 @@ import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
 import '../index.css';
 
-
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
-  const [selectedCard, setSelectedCard] = useState('');
+  const [isImagePopupOpen, setIsImagePopupOpen] = useState(false);
+  const [selectedCard, setSelectedCard] = useState({});
 
   function openEditProfile() {
     {return setIsEditProfilePopupOpen(true)}
@@ -26,14 +26,16 @@ function App() {
   }
 
   function handleCardClick(data) {
-    {return setSelectedCard(data)}
+    return setIsImagePopupOpen(true), 
+    setSelectedCard(data);
   }
-
+  
   function closeAllPopups() {
     setIsEditProfilePopupOpen(false);
     setIsEditAvatarPopupOpen(false);
     setIsAddPlacePopupOpen(false);
-    setSelectedCard('');   
+    setIsImagePopupOpen(false);
+    
   }
 
   return (
@@ -102,12 +104,12 @@ function App() {
       <ImagePopup 
         onClose = {closeAllPopups}
         card = {selectedCard}
+        isImagePopupOpen={isImagePopupOpen}
         />
 
       
     </div>
   );
 }
-
 
 export default App;

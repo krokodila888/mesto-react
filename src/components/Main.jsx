@@ -7,12 +7,12 @@ function Main(props) {
 
   const {onEditProfile, onEditAvatar, onAddPlace, onCardClick} = props;
  
-  const [userName, setUserName] = useState();
-  const [userAvatar, setUserAvatar] = useState();
-  const [userStatus, setUserStatus] = useState();
+  const [userName, setUserName] = useState("");
+  const [userAvatar, setUserAvatar] = useState("");
+  const [userStatus, setUserStatus] = useState("");
   const [cards, setCards] = useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     api.getProfileInfo()
       .then((user) => {
         setUserName(user.name)
@@ -21,7 +21,7 @@ function Main(props) {
       })
       .catch(err => console.log(err))}, [])
       
-  React.useEffect(() => {
+  useEffect(() => {
     api.getInitialCards()
       .then((card) => {
         setCards([...cards, ...card])
@@ -29,7 +29,6 @@ function Main(props) {
         .catch(err => console.log(err))
       }, [])
      
-
   return (
     <main className="content">
       <section className="profile">
