@@ -9,4 +9,4 @@
 
 Надеюсь, это будет работать.
 
-Ссылка тут (уже нет, но где она вообще теперь должна быть?..): https://krokodila888.github.io/mesto/
+Ссылка тут (но это не точно): https://krokodila888.github.io/mesto-react/
