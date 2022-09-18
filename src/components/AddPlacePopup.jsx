@@ -30,7 +30,7 @@ function AddPlacePopup(props) {
           <>
               <input ref={titleRef} className="popup__input popup__input_photo-name" required id="input-photo-name" name="name" type="text" placeholder="Название" minLength="2" maxLength="30" />
               <span className="input-photo-name-error popup__input-error"> </span>
-              <input ref={linkRef} className="popup__input popup__input_photo-link" required id="input-photo-link" name="link" placeholder="Ссылка на картинку" type="url" />
+              <input ref={linkRef} className="popup__input popup__input_photo-link" required id="input-photo-link" name="link" placeholder="Ссылка на изображение" type="url" />
               <span className="input-photo-link-error popup__input-error"> </span>
           </>
         } />

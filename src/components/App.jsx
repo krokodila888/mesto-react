@@ -73,32 +73,38 @@ function App() {
       .then((data1) => {
         setCurrentUser(data1);
         closeAllPopups()
-    })
+      })
+      .catch((err) => console.log(err));
+    
   }
 
   useEffect(() => {
     api.getInitialCards()
       .then((card) => {
         setCards([...cards, ...card])
-  })
-        .catch(err => console.log(err))
-      }, [])
+    })
+      .catch(err => console.log(err))
+  }, [])
 
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
     const isLiked = card.likes.some(i => i._id === currentUser._id);
     // Отправляем запрос в API и получаем обновлённые данные карточки
-    api.changeLikeCardStatus(card._id, isLiked).then((newCard) => {
-      setCards((state) => state.map((item) => item._id === card._id ? newCard : item));
-    });
+    api.changeLikeCardStatus(card._id, isLiked)
+      .then((newCard) => {
+        setCards((state) => state.map((item) => item._id === card._id ? newCard : item));
+      })
+      .catch((err) => console.log(err))
   } 
 
   function handleCardDelete(card) {
     const isOwn = card.owner._id === currentUser._id;
-    if (isOwn) return api.removeCard(card._id).then(() => {
-      const newCard = cards.filter((item) => item._id !== card._id);
+    if (isOwn) return api.removeCard(card._id)
+      .then(() => {
+        const newCard = cards.filter((item) => item._id !== card._id);
         setCards(newCard);
-    })
+      })
+      .catch((err) => console.log(err))
   } 
 
   function handleAddPlaceSubmit(data) {
@@ -107,6 +113,7 @@ function App() {
       setCards([newCard, ...cards]);
       closeAllPopups()
     })
+    .catch((err) => console.log(err))
   }
     
   return (

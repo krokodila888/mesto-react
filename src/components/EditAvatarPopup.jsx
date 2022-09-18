@@ -25,7 +25,7 @@ function EditAvatarPopup(props) {
         onSubmit={handleSubmit}
         children = {
           <>
-              <input ref={avatarRef} className="popup__input popup__input-avatar" placeholder="avatarRef" required id="input-avatar" name="avatar" type="url" />
+              <input ref={avatarRef} className="popup__input popup__input-avatar" placeholder="Ссылка на изображение" required id="input-avatar" name="avatar" type="url" />
               <span className="input-avatar-error popup__input-error"> </span>
           </>
         } />
