@@ -1,12 +1,4 @@
-import { bazeUrl, authorization, removeConfirmForm, removeConfirmButton, popupRemoveSelector, userAvatar, avatarSelector, inputAvatar, popupAvatarForm, popupAvatarSelector, enableValidationClasses, profileEditButton, popupProfileSelector, popupMestoSelector, profileAddButton, cardsHolder, popupMestoForm, popupProfileForm, cardSelector, popupPhotoSelector, nameSelector, statusSelector } from './constants.js';
-
-{/*Прямо внутри api.js создайте экземпляр класса Api с нужными параметрами (включая ваш токен) и экспортируйте этот экземпляр вместо самого класса.
-Используйте стейт для данных из API
-В компоненте Main добавьте переменные состояния userName, userDescription и userAvatar. Используйте их в JSX.
-Импортируйте модуль api и добавьте эффект, вызываемый при монтировании компонента, который будет совершать запрос в API за пользовательскими данными. После получения ответа задавайте полученные данные в соответствующие переменные состояния.
-Замечание. Чтобы подставить URL аватара в контейнер используйте такой код:
-style={{ backgroundImage: `url(${userAvatar})` }} 
-*/}
+import { bazeUrl, authorization } from './constants.js';
 
 export class Api {
   constructor({bazeUrl, authorization}) {
