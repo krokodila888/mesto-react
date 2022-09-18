@@ -97,6 +97,12 @@ export class Api {
     .then(this._handleResult)
   }
 
+  changeLikeCardStatus(cardID, isLiked) {
+    if (!isLiked) return (api.likeCard(cardID));
+    else return (api.dislikeCard(cardID))
+  }
+
+
   changeAvatar(data) {
     return fetch(`${this._bazeUrl}/users/me/avatar`, {
       method: 'PATCH',
